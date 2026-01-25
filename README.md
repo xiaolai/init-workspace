@@ -1,6 +1,25 @@
 # init-workspace
 
-A Claude Code plugin that initializes a multi-agent workspace with shared configuration for Claude Code, Codex CLI, and Gemini CLI.
+Initialize any project for AI-assisted development with a single command.
+
+## The Problem
+
+You're using multiple AI coding tools — Claude Code, OpenAI Codex CLI, Google Gemini CLI. Each has its own config file. You end up with:
+
+- Instructions scattered across `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`
+- Each tool learning things the others don't know
+- Inconsistent behavior when switching between tools
+- Missing `.gitignore` entries that leak secrets or bloat repos
+- No structure for custom skills, agents, or rules
+
+## The Solution
+
+Run `/init-workspace` once. Get a project structure where:
+
+- **One file to rule them all**: Write instructions in `AGENTS.md` only. Claude Code, Codex CLI, and Gemini CLI all read from it automatically.
+- **Shared memory**: When any tool learns something new, it updates `AGENTS.md`. All tools stay in sync.
+- **Ready for customization**: Directories for skills, agents, and rules are already in place.
+- **Safe defaults**: Comprehensive `.gitignore` protects secrets and keeps repos clean.
 
 ## Installation
 
@@ -60,24 +79,24 @@ project/
 └── GEMINI.md                # Gemini CLI (imports AGENTS.md)
 ```
 
-## Features
+## What Gets Created
 
-### Unified Instructions
-
-All three AI tools share the same instructions via `AGENTS.md`:
-- **Claude Code** reads `CLAUDE.md` which imports `@AGENTS.md`
-- **Codex CLI** reads `AGENTS.md` natively
-- **Gemini CLI** reads `GEMINI.md` which imports `@AGENTS.md`
-
-New instructions are always written to `AGENTS.md` only, ensuring consistency.
+| File/Directory | Purpose |
+|----------------|---------|
+| `AGENTS.md` | Your single source of truth for all AI tools |
+| `CLAUDE.md` | Imports `@AGENTS.md` (Claude Code reads this) |
+| `GEMINI.md` | Imports `@AGENTS.md` (Gemini CLI reads this) |
+| `.claude/settings.json` | Team-shared permissions |
+| `.claude/agents/` | Custom subagents |
+| `.claude/skills/` | Custom slash commands |
+| `.claude/rules/` | Modular rules auto-loaded into context |
+| `.mcp.json` | MCP server configuration |
+| `dev-docs/` | AI-generated documentation |
+| `.gitignore` | Comprehensive ignore rules |
 
 ### Included Skills
 
-- `/doc <topic>` - Create a timestamped markdown document in `dev-docs/` and open in VMark
-
-### Comprehensive .gitignore
-
-Covers AI tools, secrets, OS files, editors, dependencies, build outputs, logs, and test coverage.
+- `/doc <topic>` — Create a timestamped markdown document in `dev-docs/`
 
 ## Customization
 
