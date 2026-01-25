@@ -4,31 +4,43 @@ A Claude Code plugin that initializes a multi-agent workspace with shared config
 
 ## Installation
 
-### Option 1: Plugin (Recommended)
+### Option 1: Plugin Marketplace (Recommended)
 
-Add the marketplace and install:
+In Claude Code, run:
 
-```bash
+```
 /plugin marketplace add xiaolai/claude-init-workspace
 /plugin install init-workspace@xiaolai-claude-init-workspace
 ```
 
-### Option 2: Personal Skill
+Then use `/init-workspace:init-workspace` to run.
 
-Clone directly to your skills directory:
+### Option 2: Personal Skill (Simpler)
 
 ```bash
-git clone https://github.com/xiaolai/claude-init-workspace ~/.claude/skills/init-workspace
+mkdir -p ~/.claude/skills/init-workspace
+curl -o ~/.claude/skills/init-workspace/SKILL.md \
+  https://raw.githubusercontent.com/xiaolai/claude-init-workspace/main/skills/init-workspace/SKILL.md
 ```
 
-Or just copy `skills/init-workspace/SKILL.md` to `~/.claude/skills/init-workspace/SKILL.md`.
+Or clone the entire repo:
+
+```bash
+git clone https://github.com/xiaolai/claude-init-workspace /tmp/iw && \
+  mkdir -p ~/.claude/skills/init-workspace && \
+  cp /tmp/iw/skills/init-workspace/SKILL.md ~/.claude/skills/init-workspace/ && \
+  rm -rf /tmp/iw
+```
+
+Then use `/init-workspace` to run.
 
 ## Usage
 
-In any project directory:
+In any project directory, run:
 
 ```
-/init-workspace
+/init-workspace                         # if installed as personal skill
+/init-workspace:init-workspace          # if installed as plugin
 ```
 
 Claude will ask for a project description, then create:
