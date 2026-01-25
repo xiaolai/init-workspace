@@ -1,19 +1,31 @@
-# /init-workspace
+# init-workspace
 
-A Claude Code skill that initializes a multi-agent workspace with shared configuration for Claude Code, Codex CLI, and Gemini CLI.
+A Claude Code plugin that initializes a multi-agent workspace with shared configuration for Claude Code, Codex CLI, and Gemini CLI.
 
 ## Installation
 
+### Option 1: Plugin (Recommended)
+
+Add the marketplace and install:
+
 ```bash
-# Clone to your global Claude Code skills directory
+/plugin marketplace add xiaolai/claude-init-workspace
+/plugin install init-workspace@xiaolai-claude-init-workspace
+```
+
+### Option 2: Personal Skill
+
+Clone directly to your skills directory:
+
+```bash
 git clone https://github.com/xiaolai/claude-init-workspace ~/.claude/skills/init-workspace
 ```
 
-Or manually copy `SKILL.md` to `~/.claude/skills/init-workspace/SKILL.md`.
+Or just copy `skills/init-workspace/SKILL.md` to `~/.claude/skills/init-workspace/SKILL.md`.
 
 ## Usage
 
-In any project directory, run:
+In any project directory:
 
 ```
 /init-workspace
@@ -49,7 +61,7 @@ New instructions are always written to `AGENTS.md` only, ensuring consistency.
 
 ### Included Skills
 
-- `/doc <topic>` - Create a timestamped markdown document in `dev-docs/` and open it in VMark
+- `/doc <topic>` - Create a timestamped markdown document in `dev-docs/` and open in VMark
 
 ### Comprehensive .gitignore
 
@@ -68,3 +80,9 @@ After initialization:
 ## License
 
 MIT
+
+## Sources
+
+- [Claude Code Skills Documentation](https://code.claude.com/docs/en/skills)
+- [Claude Code Plugins Documentation](https://code.claude.com/docs/en/plugins)
+- [Discover and Install Plugins](https://code.claude.com/docs/en/discover-plugins)

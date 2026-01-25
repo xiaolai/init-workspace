@@ -1,0 +1,11 @@
+{
+  "name": "xiaolai-claude-init-workspace",
+  "description": "Multi-agent workspace initialization plugin",
+  "plugins": [
+    {
+      "name": "init-workspace",
+      "description": "Initialize a multi-agent workspace with shared configuration for Claude Code, Codex CLI, and Gemini CLI. Creates AGENTS.md (shared instructions), CLAUDE.md, GEMINI.md, .claude/ directory structure, dev-docs/, and comprehensive .gitignore.",
+      "source": "."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "init-workspace",
+  "description": "Initialize a multi-agent workspace with shared configuration for Claude Code, Codex CLI, and Gemini CLI",
+  "version": "1.0.0",
+  "author": {
+    "name": "xiaolai"
+  },
+  "homepage": "https://github.com/xiaolai/claude-init-workspace",
+  "repository": "https://github.com/xiaolai/claude-init-workspace",
+  "license": "MIT"
+}
