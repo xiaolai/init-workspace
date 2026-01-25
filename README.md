@@ -62,7 +62,14 @@ In any project directory, run:
 /init-workspace:init-workspace          # if installed as plugin
 ```
 
-Claude will ask for a project description, then create:
+Claude will ask two questions:
+
+1. **Project description** — A single line describing your project
+2. **Public or Private** — Whether to share AI config files via git:
+   - **Public** (recommended): Team shares the same AI context
+   - **Private**: AI files are gitignored, each dev has their own
+
+Then it creates:
 
 ```
 project/

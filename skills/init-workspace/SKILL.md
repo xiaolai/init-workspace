@@ -10,7 +10,11 @@ Create shared configuration files for Claude Code, Codex CLI, and Gemini CLI, pl
 
 ## Instructions
 
-1. Ask the user: "Single line description of your project:"
+1. Ask the user two questions:
+   - "Single line description of your project:"
+   - "Keep AI config files private or public?"
+     - **Private**: AI files (AGENTS.md, CLAUDE.md, GEMINI.md, .claude/, .mcp.json, dev-docs/) are gitignored. Use when you don't want to share AI instructions with collaborators.
+     - **Public** (recommended): AI files are committed to the repo. Use when you want the team to share the same AI context.
 
 2. Create the following directory structure and files:
 
@@ -127,6 +131,9 @@ If no topic is provided, ask the user what they want to document.
 ```
 
 #### .gitignore (append if exists, create if not)
+
+**If user chose PUBLIC (recommended):**
+
 ```gitignore
 # =============================================================================
 # AI CODING ASSISTANTS
@@ -238,10 +245,26 @@ coverage/
 htmlcov/
 ```
 
+**If user chose PRIVATE:**
+
+Use the same gitignore as above, but ADD these lines to the AI CODING ASSISTANTS section:
+
+```gitignore
+# AI config files (private mode - not shared with team)
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+.claude/
+.mcp.json
+dev-docs/
+```
+
 3. Create .gitkeep files in empty directories to ensure they're tracked by git.
 
 4. Tell the user:
    - "Workspace initialized for Claude Code, Codex CLI, and Gemini CLI."
+   - If PUBLIC: "AI config files will be shared with your team via git."
+   - If PRIVATE: "AI config files are gitignored and won't be shared."
    - "Edit AGENTS.md to add shared instructions for all AI tools."
    - "Add subagents to .claude/agents/, skills to .claude/skills/, rules to .claude/rules/"
    - "Configure MCP servers in .mcp.json"
