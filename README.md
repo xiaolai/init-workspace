@@ -28,8 +28,8 @@ Run `/init-workspace` once. Get a project structure where:
 In Claude Code, run:
 
 ```
-/plugin marketplace add xiaolai/claude-init-workspace
-/plugin install init-workspace@xiaolai-claude-init-workspace
+/plugin marketplace add xiaolai/init-workspace
+/plugin install init-workspace@xiaolai-init-workspace
 ```
 
 Then use `/init-workspace:init-workspace` to run.
@@ -39,13 +39,13 @@ Then use `/init-workspace:init-workspace` to run.
 ```bash
 mkdir -p ~/.claude/skills/init-workspace
 curl -o ~/.claude/skills/init-workspace/SKILL.md \
-  https://raw.githubusercontent.com/xiaolai/claude-init-workspace/main/skills/init-workspace/SKILL.md
+  https://raw.githubusercontent.com/xiaolai/init-workspace/main/skills/init-workspace/SKILL.md
 ```
 
 Or clone the entire repo:
 
 ```bash
-git clone https://github.com/xiaolai/claude-init-workspace /tmp/iw && \
+git clone https://github.com/xiaolai/init-workspace /tmp/iw && \
   mkdir -p ~/.claude/skills/init-workspace && \
   cp /tmp/iw/skills/init-workspace/SKILL.md ~/.claude/skills/init-workspace/ && \
   rm -rf /tmp/iw

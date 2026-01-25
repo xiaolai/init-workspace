@@ -1,5 +1,5 @@
 {
-  "name": "xiaolai-claude-init-workspace",
+  "name": "xiaolai-init-workspace",
   "description": "Multi-agent workspace initialization plugin",
   "plugins": [
     {
