@@ -13,7 +13,7 @@ Create shared configuration files for Claude Code, Codex CLI, and Gemini CLI, pl
 1. Ask the user two questions:
    - "Single line description of your project:"
    - "Keep AI config files private or public?"
-     - **Private**: AI files (AGENTS.md, CLAUDE.md, GEMINI.md, .claude/, .mcp.json, dev-docs/) are gitignored. Use when you don't want to share AI instructions with collaborators.
+     - **Private**: AI files (AGENTS.md, CLAUDE.md, GEMINI.md, .claude/, .mcp.json) are gitignored. Use when you don't want to share AI instructions with collaborators.
      - **Public** (recommended): AI files are committed to the repo. Use when you want the team to share the same AI context.
 
 2. Create the following directory structure and files:
@@ -27,12 +27,9 @@ project/
 │   ├── agents/              # Custom subagents
 │   │   └── .gitkeep
 │   ├── skills/              # Custom skills
-│   │   └── doc/
-│   │       └── SKILL.md     # /doc command
+│   │   └── .gitkeep
 │   └── rules/               # Modular rules
 │       └── .gitkeep
-├── dev-docs/                # Generated documentation
-│   └── .gitkeep
 ├── .mcp.json                # MCP server configuration
 ├── .gitignore               # Comprehensive gitignore
 ├── AGENTS.md                # Shared instructions (Codex CLI native)
@@ -62,22 +59,9 @@ This ensures Claude Code, Codex CLI, and Gemini CLI share the same context consi
 ## Project Structure
 
 - `.claude/agents/` - Custom subagents for specialized tasks
-- `.claude/skills/` - Slash commands (e.g., `/doc`, `/test`)
+- `.claude/skills/` - Slash commands
 - `.claude/rules/` - Modular rules auto-loaded into context
 - `.mcp.json` - MCP server configuration
-- `dev-docs/` - Generated documentation
-
-## Markdown Documentation
-
-When producing substantial markdown content (documentation, explanations, guides, analyses):
-
-1. Save to `dev-docs/` with filename: `YYYYMMDD-HHMMSS-<descriptive-slug>.md`
-2. Open with: `open -a VMark <filepath>`
-
-This applies to technical docs, design decisions, code explanations, architecture overviews.
-Short answers or code snippets do not need to be saved.
-
-Use `/doc <topic>` to manually create and open a document.
 ```
 
 #### CLAUDE.md
@@ -95,29 +79,6 @@ Use `/doc <topic>` to manually create and open a document.
 {
   "mcpServers": {}
 }
-```
-
-#### .claude/skills/doc/SKILL.md
-```markdown
-# Create Documentation
-
-Create a markdown document in dev-docs/ and open it in VMark.
-
-## Usage
-
-```
-/doc <topic>
-```
-
-## Instructions
-
-1. Generate a descriptive slug from the topic (lowercase, hyphens, no special chars)
-2. Create filename: `YYYYMMDD-HHMMSS-<slug>.md`
-3. Write the markdown file to `dev-docs/`
-4. Open the file with: `open -a VMark <filepath>`
-5. Confirm the file was created and opened
-
-If no topic is provided, ask the user what they want to document.
 ```
 
 #### .claude/settings.json
@@ -256,7 +217,6 @@ CLAUDE.md
 GEMINI.md
 .claude/
 .mcp.json
-dev-docs/
 ```
 
 3. Create .gitkeep files in empty directories to ensure they're tracked by git.
@@ -268,4 +228,3 @@ dev-docs/
    - "Edit AGENTS.md to add shared instructions for all AI tools."
    - "Add subagents to .claude/agents/, skills to .claude/skills/, rules to .claude/rules/"
    - "Configure MCP servers in .mcp.json"
-   - "Use `/doc <topic>` to create documentation in dev-docs/"
