@@ -76,9 +76,14 @@ project/
 ├── .claude/
 │   ├── settings.json        # Team-shared settings
 │   ├── agents/              # Custom subagents
-│   ├── skills/doc/          # /doc command included
+│   ├── skills/              # Claude Code skills
 │   └── rules/               # Modular rules
-├── dev-docs/                # Generated documentation
+├── .codex/
+│   ├── skills/              # Codex CLI skills
+│   └── prompts/             # Codex CLI custom slash commands
+├── .gemini/
+│   ├── skills/              # Gemini CLI skills
+│   └── commands/            # Gemini CLI custom slash commands (TOML)
 ├── .mcp.json                # MCP server configuration
 ├── .gitignore               # Comprehensive gitignore
 ├── AGENTS.md                # Shared instructions (all tools read this)
@@ -95,25 +100,23 @@ project/
 | `GEMINI.md` | Imports `@AGENTS.md` (Gemini CLI reads this) |
 | `.claude/settings.json` | Team-shared permissions |
 | `.claude/agents/` | Custom subagents |
-| `.claude/skills/` | Custom slash commands |
+| `.claude/skills/` | Claude Code skills (slash commands) |
 | `.claude/rules/` | Modular rules auto-loaded into context |
+| `.codex/skills/` | Codex CLI skills |
+| `.codex/prompts/` | Codex CLI custom slash commands |
+| `.gemini/skills/` | Gemini CLI skills |
+| `.gemini/commands/` | Gemini CLI custom slash commands (TOML) |
 | `.mcp.json` | MCP server configuration |
-| `dev-docs/` | AI-generated documentation |
 | `.gitignore` | Comprehensive ignore rules |
-
-### Included Skills
-
-- `/doc <topic>` — Create a timestamped markdown document in `dev-docs/`
 
 ## Customization
 
 After initialization:
 
 1. Edit `AGENTS.md` to add project-specific instructions
-2. Add custom subagents to `.claude/agents/`
-3. Add custom skills to `.claude/skills/`
-4. Add modular rules to `.claude/rules/`
-5. Configure MCP servers in `.mcp.json`
+2. Add skills to `.claude/skills/`, `.codex/skills/`, or `.gemini/skills/`
+3. Add subagents to `.claude/agents/`, rules to `.claude/rules/`
+4. Configure MCP servers in `.mcp.json`
 
 ## License
 
@@ -123,4 +126,6 @@ MIT
 
 - [Claude Code Skills Documentation](https://code.claude.com/docs/en/skills)
 - [Claude Code Plugins Documentation](https://code.claude.com/docs/en/plugins)
-- [Discover and Install Plugins](https://code.claude.com/docs/en/discover-plugins)
+- [Codex CLI Skills Documentation](https://developers.openai.com/codex/skills/)
+- [Gemini CLI Skills Documentation](https://geminicli.com/docs/cli/skills/)
+- [AGENTS.md Open Format](https://agents.md/)
